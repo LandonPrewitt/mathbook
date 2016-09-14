@@ -1,4 +1,4 @@
-# mathbook
+# Mathbook
 
 ### Purpose
 Sandbox for algorithms and theorems observed in Math courses. 
