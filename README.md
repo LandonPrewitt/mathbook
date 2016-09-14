@@ -2,7 +2,7 @@
 
 ## Purpose
 Sandbox for algorithms and theorems observed in Math courses. 
-This includes basic arithmatic functions to Integrals, Linear Algebra, Belzouts, Extended Euclidean, or even base conversions, etc.
+This includes basic arithmatic functions to Integrals, Linear Algebra, Belzouts, Extended Euclidean, or base conversions, etc.
 
 ## Instructions
 To use, just compile calc.cpp, ./a.out, then follow the prompted commands to 
