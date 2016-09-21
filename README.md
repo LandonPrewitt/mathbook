@@ -15,7 +15,7 @@ This includes list of all algorithms being worked on and desired to achieve in t
 - [X] Base Conversion - 2 to 10
 - [X] Base Conversion - 10 to 2
 - [ ] Base Conversion - x to y
-- [ ] Belzouts 
+- [X] Belzouts 
 - [ ] Extended Euclidean
 - [ ] Fibonacci - nth Degree
 - [ ] ...
