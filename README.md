@@ -8,13 +8,14 @@ This includes basic arithmatic functions to Integrals, Linear Algebra, Belzouts,
 To use, just compile calc.cpp, ./a.out, then follow the prompted commands to 
 clauclate whatever desired.
 
-### Completed Algorithms
+### Completed Algorithms (Alphabetical)
 This includes list of all algorithms being worked on and desired to achieve in the near future
 
-- [X] Greatest Common Denominator - Extended Euclidean
+
 - [X] Base Conversion - 2 to 10
 - [X] Base Conversion - 10 to 2
 - [ ] Base Conversion - x to y
 - [X] Belzouts 
+- [X] Extended Euclidean - GCD
 - [ ] Fibonacci - nth Degree
 - [ ] ...
