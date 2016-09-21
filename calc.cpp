@@ -17,7 +17,7 @@ void mod() {
 		cout << "z = " << (x%y) << endl;
 }
 
-// Base conversions
+// Base conversions ====================================================================
 
 void decimal() {
 
@@ -80,9 +80,9 @@ void binary() {
     cout << r << endl;
 }
 
-// Algorithms / Thms
+// Algorithms / Thms ====================================================================
 
-void myGcd(int a, int b, int u, int v, int x, int y, bool bez) {
+void myGcd(int a, int b) {
 
 	// Determine larger / smaller number
 	int big, small;
@@ -94,8 +94,9 @@ void myGcd(int a, int b, int u, int v, int x, int y, bool bez) {
 		small = a;
 	}
 
-	if(big%small == 0) cout << small << endl;
-	else myGcd(small, big%small, 0, 0, 0, 0, false);
+	
+	if(big%small == 0) cout << "GCD = " << small << endl;
+	else myGcd(small, big%small);
 }
 
 void belzout() {
@@ -103,14 +104,68 @@ void belzout() {
 	int a,b;
 
 	// Pormpt user for vairable inputs
-	cout << "ax + by = 1";
-	cout << "a: ";
+	cout << "\nax + by = 1";
+	cout << "\na: ";
 	cin >> a;
 	cout << "b: ";
 	cin >> b;
 
-	// Run GDC with values
-	myGcd(a,b, 1, 0, 0, 1, true);
+	// Run Belzout
+	int divisor = (a>b) ? b : a ;
+	int p = (a>b) ? a/b : b/a;
+	int r = (a>b) ? a%b : b%a;
+	int u = 1;
+	int v = 0;
+	int s = 0;
+	int t = 1;
+	int end = 0;
+
+	while(r > 0) {
+
+		int tmp1 = s;
+		int tmp2 = t;
+		int tmp3 = r;
+
+		s = u - p*s;
+		t = v - p*t;
+
+		u = tmp1;
+		v = tmp2;
+
+		p = divisor / r;
+		r = divisor % r;
+		divisor = tmp3;
+
+		if(r == 0) end++;
+
+	}
+
+	cout << "x = " << s << "\ny = " << t << endl;
+}
+
+void fastPowering() {
+
+	// Gather Inputs
+	int a,b,c,d,m;
+	cout << "\na^b (mod m)\n";
+	cout << "a: ";
+	cin >> a;
+	cout << "b: ";
+	cin >> b;
+	cout << "m: ";
+	cin >> m;
+
+	// Computer Result
+	c = a;
+	d = 1;
+	while(b>0) {
+		if(b%2 == 1) d = (d*c)%m;
+		c = (c*c)%m;
+		b = b/2;	
+	}
+
+	cout << "Ans = " << d << endl;
+
 }
 
 // Menu Interface Def. ====================================================================
@@ -208,7 +263,7 @@ void algorithms() {
 
 	// Prompt the user for what calculation they would like to make.
 	int choice;
-	cout << "\nPick an option: \n0. Back \n1. GCD\n2. Bezouts\nChoice: ";
+	cout << "\nPick an option: \n0. Back \n1. GCD\n2. Bezouts\n3. Fast Powering\nChoice: ";
 	cin >> choice;
 	cout << "-----------------------------";
 	
@@ -220,10 +275,13 @@ void algorithms() {
 			cout << endl << "Enter two integers: ";
 			int a,b;
 			cin >> a >> b;
-			myGcd(a,b, 1, 0, 0, 1, false);
+			myGcd(a,b);
 			break;
 		case 2:
 			belzout();
+			break;
+		case 3:
+			fastPowering();
 			break;
 		default:
 			break;
