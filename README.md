@@ -17,5 +17,6 @@ This includes list of all algorithms being worked on and desired to achieve in t
 - [ ] Base Conversion - x to y
 - [X] Belzouts 
 - [X] Extended Euclidean - GCD
+- [X] Fast Powering
 - [ ] Fibonacci - nth Degree
 - [ ] ...
