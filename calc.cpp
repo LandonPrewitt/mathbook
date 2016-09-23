@@ -165,6 +165,26 @@ void fastPowering() {
 	}
 
 	cout << "Ans = " << d << endl;
+}
+
+void fibonacci() {
+
+	// Get nth degree
+	int n, a, b, c;
+	a = c = 0;
+	b = 1;
+	cout << "\nf(n), n: ";
+	cin >> n;
+	
+	// Calc fib
+	if(n == 1 || n == 2) c = 1;
+	else for(int i=1; i<n; i++) {
+		c = a + b;
+		a = b;
+		b = c;
+	}
+
+	cout << "f(" << n << ") = " << c << endl;
 
 }
 
@@ -263,7 +283,7 @@ void algorithms() {
 
 	// Prompt the user for what calculation they would like to make.
 	int choice;
-	cout << "\nPick an option: \n0. Back \n1. GCD\n2. Bezouts\n3. Fast Powering\nChoice: ";
+	cout << "\nPick an option: \n0. Back \n1. GCD\n2. Bezouts\n3. Fast Powering\n4. Fibonacci\nChoice: ";
 	cin >> choice;
 	cout << "-----------------------------";
 	
@@ -272,9 +292,12 @@ void algorithms() {
 		case 0: 
 			break;
 		case 1: 
-			cout << endl << "Enter two integers: ";
+			cout << endl << "gcd(a,b)\n";
+			cout << "a: ";
 			int a,b;
-			cin >> a >> b;
+			cin >> a;
+			cout << "b: ";
+			cin >> b;
 			myGcd(a,b);
 			break;
 		case 2:
@@ -282,6 +305,9 @@ void algorithms() {
 			break;
 		case 3:
 			fastPowering();
+			break;
+		case 4: 
+			fibonacci();
 			break;
 		default:
 			break;
