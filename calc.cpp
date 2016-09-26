@@ -70,7 +70,7 @@ void binary() {
     	}
     }
 
-    // Ensure that digits%4 ==0
+    // Ensure that digits%4 == 0
     while(digits%4 != 0) {
     	r = "0" + r;
     	digits++;
@@ -78,6 +78,33 @@ void binary() {
 
     // Print it
     cout << r << endl;
+}
+
+void hex() {
+
+	// Create variables
+	int b = 10;
+	cout << "\nBase 10 --> Base : ";
+	cin >> b;
+	int n;
+	int digits = 0;
+	char keys[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
+	string r;
+
+	// Prompt user for the number
+	cout << "Enter a number: ";
+	cin >> n;
+
+	// Calculate the hexadecimal
+	while(n != 0) {
+		r = keys[(n%b)] + r;
+		n /= b;
+		digits++;
+		if(digits%4 == 0) r = " " + r;
+	}
+
+	// Print it
+	cout << r << endl;
 }
 
 // Algorithms / Thms ====================================================================
@@ -260,7 +287,7 @@ void baseConversion() {
 
 	// Prompt the user for what calculation they would like to make.
 	int choice;
-	cout << "\nPick an option: \n0. Back \n1. Decimal to Binary\n2. Binary to Decimal\nChoice: ";
+	cout << "\nPick an option: \n0. Back\n1. Binary to Decimal\n2. Decimal to (2-32)\nChoice: ";
 	cin >> choice;
 	cout << "----------------------------- ";
 	
@@ -268,12 +295,11 @@ void baseConversion() {
 	switch(choice){
 		case 0: 
 			break;
-		case 1: 
-			binary();
-			break;
-		case 2:
+		case 1:
 			decimal();
 			break;
+		case 2:
+			hex();
 		default:
 			break;
 	}
