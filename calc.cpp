@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -80,7 +81,7 @@ void binary() {
     cout << r << endl;
 }
 
-void hex() {
+void decimalTo() {
 
 	// Create variables
 	int b = 10;
@@ -105,6 +106,44 @@ void hex() {
 
 	// Print it
 	cout << r << endl;
+}
+
+void toDecimal() {
+
+	// Get the base and number
+	int base;
+	int pos = 0;
+	int ans = 0;
+	char keys[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
+	string value; 
+	cout << "\nBase (2-32) to decimal: ";
+	cin >> base;
+	cout << "Enter a value: ";
+	cin >> value;
+	pos = value.length()-1;
+
+
+	// Calculate the decimal
+	while(pos >= 0) {
+
+		// Conver value to integer
+		int index = 0;
+		for(int i=0; i<32; i++) {
+			if(toupper(value[pos]) == keys[i]) {
+				index = i;
+				break;
+			}
+		}
+
+		// Add to answer
+		ans += index*pow(base, value.length()-(1+pos));
+
+		// Increment position
+		pos--;
+	}
+
+	// return value
+	cout << "Decimal Value: " << ans << endl;
 }
 
 // Algorithms / Thms ====================================================================
@@ -287,7 +326,7 @@ void baseConversion() {
 
 	// Prompt the user for what calculation they would like to make.
 	int choice;
-	cout << "\nPick an option: \n0. Back\n1. Binary to Decimal\n2. Decimal to (2-32)\nChoice: ";
+	cout << "\nPick an option: \n0. Back\n1. (0-32) to Decimal\n2. Decimal to (2-32)\nChoice: ";
 	cin >> choice;
 	cout << "----------------------------- ";
 	
@@ -296,10 +335,10 @@ void baseConversion() {
 		case 0: 
 			break;
 		case 1:
-			decimal();
+			toDecimal();
 			break;
 		case 2:
-			hex();
+			decimalTo();
 		default:
 			break;
 	}

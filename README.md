@@ -12,7 +12,7 @@ clauclate whatever desired.
 This includes list of all algorithms being worked on and desired to achieve in the near future
 
 
-- [X] Base Conversion - 2 to 10
+- [X] Base Conversion - (2-32) to 10
 - [X] Base Conversion - 10 to (2-32)
 - [ ] Base Conversion - x to y
 - [X] Belzouts 
