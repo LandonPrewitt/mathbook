@@ -20,106 +20,30 @@ void mod() {
 
 // Base conversions ====================================================================
 
-void decimal() {
+string decimalTo(int n, int b) {
 
-	// Create Variables
-	int n; 
-	int ans = 0;
-
-	// Prompt user for number
-	cout << endl << "Enter a number: ";
-	cin >> n;
-
-	// Calc max pow
-	int max = 1;
-
-	// Calculate the Decimal
-	while(n!=0 && max > 0) {
-
-		if(n%2!=0) ans += max;
-		max*=2;
-		n = n/10;
-		//cout << "Current State: " << n << endl << "Max: " << max << endl << "Ans: " << ans << endl;
-
-	}
-		
-	// return the decimal
-	cout << ans << endl;
-}
-
-void binary() {
-
-	// Create variables 
-	int n;
-	int digits = 0;
-	string r;
-
-	// Prompt user for the number
-	cout << endl << "Enter a number: ";
-	cin >> n;
-
-	// Calculae the binary
-    while(n!=0) {
-    	
-    	// Increment Digits
-    	digits++;
-    	
-    	// Check for remaining n
-    	if(n!=0) {
-    		r=(n%2==0 ?"0":"1")+r; n/=2;
-    		if(digits%4==0) r = " " + r;
-    	}
-    }
-
-    // Ensure that digits%4 == 0
-    while(digits%4 != 0) {
-    	r = "0" + r;
-    	digits++;
-    }
-
-    // Print it
-    cout << r << endl;
-}
-
-void decimalTo() {
-
-	// Create variables
-	int b = 10;
-	cout << "\nBase 10 --> Base : ";
-	cin >> b;
-	int n;
 	int digits = 0;
 	char keys[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
 	string r;
-
-	// Prompt user for the number
-	cout << "Enter a number: ";
-	cin >> n;
 
 	// Calculate the hexadecimal
 	while(n != 0) {
 		r = keys[(n%b)] + r;
 		n /= b;
 		digits++;
-		if(digits%4 == 0) r = " " + r;
+		//if(digits%4 == 0) r = " " + r;
 	}
 
-	// Print it
-	cout << r << endl;
+	// Return the value
+	return r;
 }
 
-void toDecimal() {
+int toDecimal(string value, int base) {
 
 	// Get the base and number
-	int base;
 	int pos = 0;
 	int ans = 0;
 	char keys[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
-	string value; 
-	cout << "\nBase (2-32) to decimal: ";
-	cin >> base;
-	cout << "Enter a value: ";
-	cin >> value;
 	pos = value.length()-1;
 
 
@@ -143,7 +67,7 @@ void toDecimal() {
 	}
 
 	// return value
-	cout << "Decimal Value: " << ans << endl;
+	return ans;
 }
 
 // Algorithms / Thms ====================================================================
@@ -251,7 +175,6 @@ void fibonacci() {
 	}
 
 	cout << "f(" << n << ") = " << c << endl;
-
 }
 
 // Menu Interface Def. ====================================================================
@@ -324,24 +247,19 @@ void arithmatic() {
 
 void baseConversion() {
 
-	// Prompt the user for what calculation they would like to make.
-	int choice;
-	cout << "\nPick an option: \n0. Back\n1. (0-32) to Decimal\n2. Decimal to (2-32)\nChoice: ";
-	cin >> choice;
-	cout << "----------------------------- ";
-	
-	// Determine which choice the user made
-	switch(choice){
-		case 0: 
-			break;
-		case 1:
-			toDecimal();
-			break;
-		case 2:
-			decimalTo();
-		default:
-			break;
-	}
+	// Prompt user for input
+	int base1, base2;
+	string value;
+	cout << "\nValue: Base 'x' to Base 'y'" << endl;
+	cout << "Value: ";
+	cin >> value;
+	cout << "x: ";
+	cin >> base1;
+	cout << "y: ";
+	cin >> base2;
+
+	// Output the conversion!
+	cout << decimalTo(toDecimal(value,base1) ,base2) << endl;
 }
 
 void algorithms() {
